@@ -1,7 +1,7 @@
 Summary:	Utilities for exFAT file system
 Name:		exfat-utils
-Version:	0.9.4
-Release:	2%{?dist}
+Version:	0.9.5
+Release:	1%{?dist}.R
 
 License:	GPLv3+
 Group:		System Environment/Base
@@ -56,6 +56,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Thu Jun  7 2011 Arkady L. Shane <ashejn@yandex-team.ru> - 0.9.5-1.R
+- update to 0.9.5
+
 * Fri Mar 18 2011 Arkady L. Shane <ashejn@yandex-team.ru> - 0.9.4-2
 - add BR fuse-devel
 
