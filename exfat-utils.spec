@@ -36,12 +36,12 @@ cp %{SOURCE100} .
 
 %install
 rm -rf $RPM_BUILD_ROOT
-scons install DESTDIR=$RPM_BUILD_ROOT/sbin
-mkdir -p $RPM_BUILD_ROOT/usr/share/man/man8/
-gzip -9 -c dump/dumpexfat.8 > $RPM_BUILD_ROOT/usr/share/man/man8/dumpexfat.8.gz
-gzip -9 -c fsck/exfatfsck.8 > $RPM_BUILD_ROOT/usr/share/man/man8/exfatfsck.8.gz
-gzip -9 -c mkfs/mkexfatfs.8 > $RPM_BUILD_ROOT/usr/share/man/man8/mkexfatfs.8.gz
-gzip -9 -c label/exfatlabel.8 > $RPM_BUILD_ROOT/usr/share/man/man8/exfatlabel.8.gz
+scons install DESTDIR=$RPM_BUILD_ROOT%{_sbindir}
+mkdir -p $RPM_BUILD_ROOT%{_mandir}/man8/
+gzip -9 -c dump/dumpexfat.8 > $RPM_BUILD_ROOT%{_mandir}/man8/dumpexfat.8.gz
+gzip -9 -c fsck/exfatfsck.8 > $RPM_BUILD_ROOT%{_mandir}/man8/exfatfsck.8.gz
+gzip -9 -c mkfs/mkexfatfs.8 > $RPM_BUILD_ROOT%{_mandir}/man8/mkexfatfs.8.gz
+gzip -9 -c label/exfatlabel.8 > $RPM_BUILD_ROOT%{_mandir}/man8/exfatlabel.8.gz
 
 
 %clean
@@ -50,17 +50,17 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-/sbin/dumpexfat
-/sbin/exfatfsck
+%{_sbindir}/dumpexfat
+%{_sbindir}/exfatfsck
 %doc README.RFRemix
-%attr(755,root,root) /sbin/fsck.exfat
-/sbin/mkexfatfs
-%attr(755,root,root) /sbin/mkfs.exfat
-/sbin/exfatlabel
-%attr(644,root,root) /usr/share/man/man8/dumpexfat.8.gz
-%attr(644,root,root) /usr/share/man/man8/exfatfsck.8.gz
-%attr(644,root,root) /usr/share/man/man8/mkexfatfs.8.gz
-%attr(644,root,root) /usr/share/man/man8/exfatlabel.8.gz
+%attr(755,root,root) %{_sbindir}/fsck.exfat
+%{_sbindir}/mkexfatfs
+%attr(755,root,root) %{_sbindir}/mkfs.exfat
+%{_sbindir}/exfatlabel
+%attr(644,root,root) %{_mandir}/man8/dumpexfat.8.gz
+%attr(644,root,root) %{_mandir}/man8/exfatfsck.8.gz
+%attr(644,root,root) %{_mandir}/man8/mkexfatfs.8.gz
+%attr(644,root,root) %{_mandir}/man8/exfatlabel.8.gz
 
 
 %changelog
