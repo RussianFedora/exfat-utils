@@ -1,22 +1,28 @@
-Summary:	Utilities for exFAT file system
-Name:		exfat-utils
-Version:	0.9.5
-Release:	1%{?dist}.R
+Summary:    Utilities for exFAT file system
+Summary(ru):Утилиты для файловой системы exFAT
+Name:       exfat-utils
+Version:    0.9.6
+Release:    1%{?dist}.R
 
-License:	GPLv3+
-Group:		System Environment/Base
-Source0:	http://exfat.googlecode.com/files/exfat-utils-%{version}.tar.gz
-URL:		http://code.google.com/p/exfat/
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+License:    GPLv3+
+Group:      System Environment/Base
+Source0:    http://exfat.googlecode.com/files/exfat-utils-%{version}.tar.gz
+Source100:  README.RFRemix
+URL:        http://code.google.com/p/exfat/
+BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-BuildRequires:	scons
-BuildRequires:	gzip
-BuildRequires:	fuse-devel
+BuildRequires:  scons
+BuildRequires:  gzip
+BuildRequires:  fuse-devel
 
 
 %description
 A set of utilities for creating, checking, dumping and labelling exFAT file
 system.
+
+%description -l ru
+Набор утилит для создания, проверки, дампа и назначения метки для
+файловой системы exFAT.
 
 
 %prep
@@ -25,6 +31,7 @@ system.
 
 %build
 scons
+cp %{SOURCE100} .
 
 
 %install
@@ -45,6 +52,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 /sbin/dumpexfat
 /sbin/exfatfsck
+%doc README.RFRemix
 %attr(755,root,root) /sbin/fsck.exfat
 /sbin/mkexfatfs
 %attr(755,root,root) /sbin/mkfs.exfat
@@ -56,6 +64,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Tue Jun 17 2012 Vasiliy N. Glazov <vascom2@gmail.com> - 0.9.6-1.R
+- update to 0.9.6
+
 * Thu Jun  7 2011 Arkady L. Shane <ashejn@yandex-team.ru> - 0.9.5-1.R
 - update to 0.9.5
 
