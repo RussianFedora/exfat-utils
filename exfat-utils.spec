@@ -2,7 +2,7 @@ Summary:    Utilities for exFAT file system
 Summary(ru):Утилиты для файловой системы exFAT
 Name:       exfat-utils
 Version:    0.9.7
-Release:    1%{?dist}.R
+Release:    1%{?dist}
 
 License:    GPLv3+
 Group:      System Environment/Base
