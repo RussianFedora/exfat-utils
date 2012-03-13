@@ -67,7 +67,7 @@ rm -rf $RPM_BUILD_ROOT
 * Tue Mar 13 2012 Vasiliy N. Glazov <vascom2@gmail.com> - 0.9.7-1.R
 - update to 0.9.7
 
-* Tue Jun 17 2012 Vasiliy N. Glazov <vascom2@gmail.com> - 0.9.6-1.R
+* Tue Jan 17 2012 Vasiliy N. Glazov <vascom2@gmail.com> - 0.9.6-1.R
 - update to 0.9.6
 
 * Thu Jun  7 2011 Arkady L. Shane <ashejn@yandex-team.ru> - 0.9.5-1.R
