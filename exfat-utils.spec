@@ -1,13 +1,12 @@
 Summary:    Utilities for exFAT file system
 Summary(ru):Утилиты для файловой системы exFAT
 Name:       exfat-utils
-Version:    0.9.7
+Version:    0.9.8
 Release:    1%{?dist}
 
 License:    GPLv3+
 Group:      System Environment/Base
 Source0:    http://exfat.googlecode.com/files/exfat-utils-%{version}.tar.gz
-Source100:  README.RFRemix
 URL:        http://code.google.com/p/exfat/
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -31,7 +30,6 @@ system.
 
 %build
 scons
-cp %{SOURCE100} .
 
 
 %install
@@ -44,15 +42,9 @@ gzip -9 -c mkfs/mkexfatfs.8 > $RPM_BUILD_ROOT%{_mandir}/man8/mkexfatfs.8.gz
 gzip -9 -c label/exfatlabel.8 > $RPM_BUILD_ROOT%{_mandir}/man8/exfatlabel.8.gz
 
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
-
 %files
-%defattr(-,root,root,-)
 %{_sbindir}/dumpexfat
 %{_sbindir}/exfatfsck
-%doc README.RFRemix
 %attr(755,root,root) %{_sbindir}/fsck.exfat
 %{_sbindir}/mkexfatfs
 %attr(755,root,root) %{_sbindir}/mkfs.exfat
@@ -64,6 +56,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sun Aug 12 2012 Vasiliy N. Glazov <vascom2@gmail.com> - 0.9.8-1.R
+- update to 0.9.8
+
 * Tue Mar 13 2012 Vasiliy N. Glazov <vascom2@gmail.com> - 0.9.7-1.R
 - update to 0.9.7
 
