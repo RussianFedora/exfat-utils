@@ -1,17 +1,15 @@
 Summary:    Utilities for exFAT file system
 Summary(ru):Утилиты для файловой системы exFAT
 Name:       exfat-utils
-Version:    0.9.8
+Version:    1.0.0
 Release:    1%{?dist}
 
 License:    GPLv3+
 Group:      System Environment/Base
 Source0:    http://exfat.googlecode.com/files/exfat-utils-%{version}.tar.gz
 URL:        http://code.google.com/p/exfat/
-BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  scons
-BuildRequires:  gzip
 BuildRequires:  fuse-devel
 
 
@@ -56,6 +54,9 @@ gzip -9 -c label/exfatlabel.8 > $RPM_BUILD_ROOT%{_mandir}/man8/exfatlabel.8.gz
 
 
 %changelog
+* Mon Jan 21 2012 Vasiliy N. Glazov <vascom2@gmail.com> - 1.0.0-1.R
+- update to 1.0.0
+
 * Sun Aug 12 2012 Vasiliy N. Glazov <vascom2@gmail.com> - 0.9.8-1.R
 - update to 0.9.8
 
