@@ -1,7 +1,7 @@
 Summary:    Utilities for exFAT file system
 Summary(ru):Утилиты для файловой системы exFAT
 Name:       exfat-utils
-Version:    1.0.0
+Version:    1.0.1
 Release:    1%{?dist}
 
 License:    GPLv3+
@@ -54,6 +54,9 @@ gzip -9 -c label/exfatlabel.8 > $RPM_BUILD_ROOT%{_mandir}/man8/exfatlabel.8.gz
 
 
 %changelog
+* Wed Mar 20 2013 Vasiliy N. Glazov <vascom2@gmail.com> - 1.0.1-1.R
+- update to 1.0.1
+
 * Mon Jan 21 2013 Vasiliy N. Glazov <vascom2@gmail.com> - 1.0.0-1.R
 - update to 1.0.0
 
