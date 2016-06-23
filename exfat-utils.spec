@@ -1,16 +1,13 @@
-Summary:    Utilities for exFAT file system
-Summary(ru):Утилиты для файловой системы exFAT
-Name:       exfat-utils
-Version:    1.0.1
-Release:    1%{?dist}
+Summary:        Utilities for exFAT file system
+Summary(ru):    Утилиты для файловой системы exFAT
+Name:           exfat-utils
+Version:        1.2.4
+Release:        1%{?dist}
 
-License:    GPLv3+
-Group:      System Environment/Base
-Source0:    http://exfat.googlecode.com/files/exfat-utils-%{version}.tar.gz
-URL:        http://code.google.com/p/exfat/
-
-BuildRequires:  scons
-BuildRequires:  fuse-devel
+License:        GPLv2+
+Group:          System Environment/Base
+Source0:        https://github.com/relan/exfat/releases/download/v%{version}/exfat-utils-%{version}.tar.gz
+URL:            https://github.com/relan/exfat
 
 
 %description
@@ -27,17 +24,12 @@ system.
 
 
 %build
-scons
+%configure
+%make_build
 
 
 %install
-rm -rf $RPM_BUILD_ROOT
-scons install DESTDIR=$RPM_BUILD_ROOT%{_sbindir}
-mkdir -p $RPM_BUILD_ROOT%{_mandir}/man8/
-gzip -9 -c dump/dumpexfat.8 > $RPM_BUILD_ROOT%{_mandir}/man8/dumpexfat.8.gz
-gzip -9 -c fsck/exfatfsck.8 > $RPM_BUILD_ROOT%{_mandir}/man8/exfatfsck.8.gz
-gzip -9 -c mkfs/mkexfatfs.8 > $RPM_BUILD_ROOT%{_mandir}/man8/mkexfatfs.8.gz
-gzip -9 -c label/exfatlabel.8 > $RPM_BUILD_ROOT%{_mandir}/man8/exfatlabel.8.gz
+%make_install INSTALL="install -p"
 
 
 %files
@@ -54,6 +46,22 @@ gzip -9 -c label/exfatlabel.8 > $RPM_BUILD_ROOT%{_mandir}/man8/exfatlabel.8.gz
 
 
 %changelog
+* Thu Jun 23 2016 Vasiliy N. Glazov <vascom2@gmail.com> - 1.2.4-1
+- Clean spec
+- Update to 1.2.4
+
+* Wed Mar 30 2016 Orion Poplawski <orion@cora.nwra.com> - 1.2.3-1
+- Update to 1.2.3
+
+* Sat Nov 14 2015 Nicolas Chauvet <kwizart@gmail.com> - 1.2.2-1
+- Update to 1.2.2
+
+* Sat Dec 20 2014 TingPing <tingping@tingping.se> - 1.1.1-1
+- Update to 1.1.1
+
+* Sun Aug 31 2014 Sérgio Basto <sergio@serjux.com> - 1.0.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
+
 * Wed Mar 20 2013 Vasiliy N. Glazov <vascom2@gmail.com> - 1.0.1-1.R
 - update to 1.0.1
 
@@ -69,7 +77,7 @@ gzip -9 -c label/exfatlabel.8 > $RPM_BUILD_ROOT%{_mandir}/man8/exfatlabel.8.gz
 * Tue Jan 17 2012 Vasiliy N. Glazov <vascom2@gmail.com> - 0.9.6-1.R
 - update to 0.9.6
 
-* Thu Jun  7 2011 Arkady L. Shane <ashejn@yandex-team.ru> - 0.9.5-1.R
+* Tue Jun  7 2011 Arkady L. Shane <ashejn@yandex-team.ru> - 0.9.5-1.R
 - update to 0.9.5
 
 * Fri Mar 18 2011 Arkady L. Shane <ashejn@yandex-team.ru> - 0.9.4-2
